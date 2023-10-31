@@ -18,8 +18,8 @@ const MenuList = ({open, setOpen}: MenuProps ) => {
 
                 <nav className="flex flex-col gap-5 px-4 text-white">
                     <Link href={"#"}>Inicio</Link>
-                    <Link href={"#"}>Productos</Link>
-                    <Link href={"#"}>Ofertas</Link>
+                    <Link href={"#"}>Tienda</Link>
+                    <Link href={"#"}>Contactanos</Link>
                 </nav>
             </aside>
         </div>

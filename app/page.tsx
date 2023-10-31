@@ -1,9 +1,13 @@
-import NavBar from "@/components/navBar";
+import Hero from "@/components/Hero/hero";
+import NavBar from "@/components/NavBar/navBar";
 
 export default function Home() {
   return (
-    <main className="mt-5 container mx-auto">
-      <NavBar/>
+    <main>
+      <div className="container mx-auto my-5">
+        <NavBar/>
+      </div>
+      <Hero/>
     </main>
   )
 }
