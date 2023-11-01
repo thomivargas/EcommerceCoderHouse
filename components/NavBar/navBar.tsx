@@ -11,10 +11,9 @@ const NavBar = () => {
                     <Image 
                         src={logo}
                         width={50}
-                        height={50}
                         alt="logo"
                     />
-                    <h1 className="font-extrabold text-3xl">Furniro</h1>
+                    <h1 className="font-extrabold text-3xl">Funiro</h1>
                 </div>
                 <Menu />
             </div>

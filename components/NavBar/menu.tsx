@@ -19,7 +19,7 @@ const Menu = () => {
 
     return ( 
         <>
-            <div className="hidden md:flex gap-8 xl:gap-16 text-sm font-semibold">
+            <div className="hidden md:flex gap-8 xl:gap-16 font-semibold">
                 <Link href={"#"} className="cursor-pointer hover:text-[#B88E2F]">Inicio</Link>
                 <Link href={"#"} className="cursor-pointer hover:text-[#B88E2F]">Tienda</Link>
                 <Link href={"#"} className="cursor-pointer hover:text-[#B88E2F]">Contacto</Link>
@@ -29,28 +29,24 @@ const Menu = () => {
                     alt="userIcon"
                     src={userIcon}
                     width={25}
-                    height={25}
                     className="cursor-pointer"
                 />
                 <Image
                     alt="searchIcon"
                     src={searchIcon}
                     width={25}
-                    height={25}
                     className="cursor-pointer"
                 />
                 <Image
                     alt="heartIcon"
                     src={heartIcon}
                     width={25}
-                    height={25}
                     className="cursor-pointer"
                 />
                 <Image
                     alt="cartIcon"
                     src={cartIcon}
                     width={25}
-                    height={25}
                     className="cursor-pointer"
                 />
             </div>
@@ -59,7 +55,6 @@ const Menu = () => {
                     alt="menu"
                     src={menuIcon}
                     width={35}
-                    height={35}
                 />
             </div>
             <MenuList open={open} setOpen={setOpen}/>

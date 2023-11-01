@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.imagenOscura img {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.imagenOscura:hover img {
+    filter: brightness(80%); 
+}
