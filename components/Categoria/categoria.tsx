@@ -31,7 +31,7 @@ const Categoria = () => {
             </div>
             <div className="flex flex-col md:flex-row gap-3 justify-between text-center font-bold text-2xl">
                 { categoria.map( item => (
-                    <Link href={item.href} className="basis-80 cursor-pointer imagenOscura" key={item.name}>
+                    <Link href={item.href} className="cursor-pointer imagenOscura" key={item.name}>
                         <Image
                             src={item.img}
                             width={380}

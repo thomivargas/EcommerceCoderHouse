@@ -1,6 +1,6 @@
 const Footer = () => {
     return ( 
-        <footer className="container px-4 md:mx-auto mt-32 mb-10 grid grid-cols-1 gap-5 md:gap-0 md:grid-cols-4 cursor-default">
+        <footer className="container px-4 md:mx-auto mt-16 mb-10 grid grid-cols-1 gap-5 md:gap-0 md:grid-cols-4 cursor-default">
             <div className="flex flex-col gap-10">
                 <h1 className="font-extrabold text-3xl">Funiro</h1>
                 <div className="text-[#757575]">

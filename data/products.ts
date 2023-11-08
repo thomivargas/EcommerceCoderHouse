@@ -1,18 +1,26 @@
+
 import mesaNegra from '@/assets/products/comedor room/mesa-negra.webp'
+import mesaNegraHover from '@/assets/products/comedor room/sillas-negras.webp'
 import mesaAzul from '@/assets/products/comedor room/mesa-azul.webp'
+import mesaAzulHover from '@/assets/products/comedor room/mesa-azul-hover.webp'
 import mesaAmarilla from '@/assets/products/comedor room/mesa-amarilla.webp'
+import mesaAmarillaHover from '@/assets/products/comedor room/mesa-amarillahover.webp'
 
 //Living
-
 import sillonAzul from '@/assets/products/living/sillon-azul.webp'
+import sillonAzulHover from '@/assets/products/living/sillon-azul-hover.webp'
 import sillonMarron from '@/assets/products/living/sillon-blanco.webp'
+import sillonMarronHover from '@/assets/products/living/sillon-blanco-hover.webp'
 import sillonRojo from '@/assets/products/living/sillon-rojo.webp'
+import sillonRojoHover from '@/assets/products/living/sillon-rojo-hover.webp'
 
 //bedroom
-
 import camaUno from '@/assets/products/bedroom/cama-uno.webp'
 import camaDos from '@/assets/products/bedroom/cama-dos.webp'
 import camaTres from '@/assets/products/bedroom/cama-tres.webp'
+import camaUnoHover from '@/assets/products/bedroom/camauno-hover.webp'
+import camaDosHover from '@/assets/products/bedroom/camados-hover.webp'
+import camaTresHover from '@/assets/products/bedroom/camatres-hover.webp'
 
 export const mockData = [
     {
@@ -24,6 +32,7 @@ export const mockData = [
         cuotas: {cantidad: 6, precioCuota: 59166, descuento: 33},
         slug: 'Juego-de-comedor-mesa-cuadrada-un55au7000gczb',
         image: mesaNegra,
+        imageHover: mesaNegraHover,
         type: 'dining',
         nuevo: false
     },
@@ -36,6 +45,7 @@ export const mockData = [
         cuotas: {cantidad: 12, precioCuota: 36166, descuento: 40},
         slug: 'juego-comedor-mesa-fija-negra-55nano80spa',
         image: mesaAzul,
+        imageHover: mesaAzulHover,
         type: 'dining',
         nuevo: false
     },
@@ -48,6 +58,7 @@ export const mockData = [
         cuotas: {cantidad: 12, precioCuota: 46166, descuento: 60},
         slug: 'juego-de-comedor-mesa-fija-color-paraiso',
         image: mesaAmarilla,
+        imageHover: mesaAmarillaHover,
         type: 'dining',
         nuevo: false
     },
@@ -67,6 +78,7 @@ export const mockData = [
         cuotas: {cantidad: 12, precioCuota: 32166, descuento: 40},
         slug: 'MLA-914874025-juego-de-living-sillon-de-tres-cuerpo',
         image: sillonAzul,
+        imageHover: sillonAzulHover,
         type: 'living',
         nuevo: false
     },
@@ -84,6 +96,7 @@ export const mockData = [
         cuotas: {cantidad: 6, precioCuota: 52166, descuento: 0},
         slug: 'sillon-de-3-cuerpos-con-camastro',
         image: sillonMarron,
+        imageHover: sillonMarronHover,
         type: 'living',
         nuevo: true
     },
@@ -98,6 +111,7 @@ export const mockData = [
         cuotas: {cantidad: 3, precioCuota: 83966, descuento: 0},
         slug: 'juegos-completo-de-living-de-2-cuerpos-con-camastro',
         image: sillonRojo,
+        imageHover: sillonRojoHover,
         type: 'living',
         nuevo: true
     },
@@ -110,6 +124,7 @@ export const mockData = [
         cuotas: {cantidad: 24, precioCuota: 8966, descuento: 50},
         slug: 'box-de-cama-base-somier-con-cajonera',
         image: camaUno,
+        imageHover: camaUnoHover,
         type: 'bedroom',
         nuevo: false
     },
@@ -122,6 +137,7 @@ export const mockData = [
         slug: 'cama-box-cajonera-con-zapatero-p/140-X-190',
         cuotas: {cantidad: 12, precioCuota: 43966, descuento: 0},
         image: camaDos,
+        imageHover: camaDosHover,
         type: 'bedroom',
         nuevo: true
     },
@@ -134,6 +150,7 @@ export const mockData = [
         cuotas: {cantidad: 6, precioCuota: 63966, descuento: 0},
         slug: 'cama-de-dos-plazas-con-respaldo-repisame-lamina-1,50m',
         image: camaTres,
+        imageHover: camaTresHover,
         type: 'bedroom',
         nuevo: true,
     },

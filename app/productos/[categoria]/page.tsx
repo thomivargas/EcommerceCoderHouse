@@ -17,7 +17,7 @@ const Productos = ({params} : {params: Params}) => {
     return (
         <main className="bg-[#EBEBEB]">
             <div className="container mx-auto">
-                <div className="my-10 grid justify-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10">
+                <div className="py-24 grid justify-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10">
                     {items.map(item => (
                         <ProductoCard key={item.slug} item={item}/>
                     ))}
