@@ -8,10 +8,45 @@ import cartIcon from "@/assets/header/cart.png"
 import { useState } from "react";
 import MenuList from "./menuList";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
+const imagenes = [
+    {
+        nombre: 'userIcon',
+        img: userIcon
+    },
+    {
+        nombre: 'searchIcon',
+        img: searchIcon
+    },
+    {
+        nombre: 'heartIcon',
+        img: heartIcon
+    },
+    {
+        nombre: 'cartIcon',
+        img: cartIcon
+    }
+]
+
+const links = [
+    {
+        label: 'Inicio',
+        href: '/'
+    },
+    {
+        label: 'Tienda',
+        href: '/productos/todos'
+    },
+    {
+        label: 'Contactanos',
+        href: '/contacto'
+    }
+]
 
 const Menu = () => {
     const [open, setOpen] = useState<boolean>(false)
+    const pathname = usePathname()
 
     const handleMenu = () => {
         setOpen(!open)
@@ -19,36 +54,27 @@ const Menu = () => {
 
     return ( 
         <>
-            <div className="hidden md:flex gap-8 xl:gap-16 font-semibold">
-                <Link href={"#"} className="cursor-pointer hover:text-[#B88E2F]">Inicio</Link>
-                <Link href={"#"} className="cursor-pointer hover:text-[#B88E2F]">Tienda</Link>
-                <Link href={"#"} className="cursor-pointer hover:text-[#B88E2F]">Contacto</Link>
+            <div className="hidden md:flex gap-8 xl:gap-16">
+                { links.map( link => (
+                    <Link
+                        key={link.label}
+                        href={link.href}
+                        className={`cursor-pointer hover:text-[#B88E2F]`}
+                    >
+                        {link.label}
+                    </Link>
+                ))}
             </div>
             <div className="hidden md:flex gap-5 xl:gap-10 items-center">
-                <Image
-                    alt="userIcon"
-                    src={userIcon}
-                    width={25}
-                    className="cursor-pointer"
-                />
-                <Image
-                    alt="searchIcon"
-                    src={searchIcon}
-                    width={25}
-                    className="cursor-pointer"
-                />
-                <Image
-                    alt="heartIcon"
-                    src={heartIcon}
-                    width={25}
-                    className="cursor-pointer"
-                />
-                <Image
-                    alt="cartIcon"
-                    src={cartIcon}
-                    width={25}
-                    className="cursor-pointer"
-                />
+                { imagenes.map( imagen => (
+                    <Image
+                        key={imagen.nombre}
+                        alt={imagen.nombre}
+                        src={imagen.img}
+                        width={25}
+                        className="cursor-pointer"
+                    />
+                ))}
             </div>
             <div onClick={handleMenu} className="flex md:hidden cursor-pointer">
                 <Image

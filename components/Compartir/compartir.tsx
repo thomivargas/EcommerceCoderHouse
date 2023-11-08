@@ -13,28 +13,30 @@ const Compartir = () => {
     return ( 
         <section className="container mx-auto my-24 flex flex-col items-center gap-5">
             <div className="text-center cursor-default">
-                <p className="text-[#757575] font-semibold">comparte tu setup con</p>
-                <h1 className="font-bold text-3xl">#FuniroFurniture</h1>
+                <p className="text-[#757575] text-sm md:text-base font-semibold">comparte tu setup con</p>
+                <h1 className="font-bold text-2xl md:text-3xl">#FuniroFurniture</h1>
             </div>
-            <div className="mx-5 flex flex-col items-center lg:flex-row gap-3">
-                <div>
-                    <div className="flex justify-between items-end gap-3">
+            <div className="mx-2 flex flex-col items-center lg:flex-row gap-3">
+                <div className="container">
+                    <div className="flex items-end justify-center md:justify-end gap-3">
                         <Image
                             src={compartir_1}
                             width={80}
                             alt=""
+                            className="hidden lg:flex"
                         />
                         <Image
                             src={compartir_2}
-                            width={380}
+                            width={300}
                             alt=""
                         />
                     </div>
-                    <div className="flex justify-between items-start gap-3 mt-3">
+                    <div className="flex justify-end items-start gap-3 mt-3">
                         <Image
                             src={compartir_3}
                             width={180}
                             alt=""
+                            className="hidden lg:flex"
                         />
                         <Image
                             src={compartir_4}
@@ -46,12 +48,12 @@ const Compartir = () => {
                 <div className="hidden lg:flex">
                     <Image
                         src={compartir_5}
-                        width={220}
+                        width={500}
                         alt=""
                     />
                 </div>
-                <div>
-                    <div className="flex gap-3 items-end">
+                <div className="container">
+                    <div className="flex gap-3 justify-center md:justify-start items-end">
                         <Image
                             src={compartir_6}
                             width={250}
@@ -61,17 +63,19 @@ const Compartir = () => {
                             src={compartir_8}
                             width={200}
                             alt=""
+                            className="hidden lg:flex"
                         />
                     </div>
-                    <div className="flex items-start justify-between gap-3 mt-3">
+                    <div className="flex items-start justify-center md:justify-start gap-3 mt-3">
                         <Image
                             src={compartir_7}
-                            width={140}
+                            width={180}
                             alt=""
+                            className="hidden lg:flex"
                         />
                         <Image
                             src={compartir_9}
-                            width={300}
+                            width={270}
                             alt=""
                         />
                     </div>
