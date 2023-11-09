@@ -53,7 +53,7 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
 
     return (
         <>
-            <div className="text-gray-600 text-xs px-2 lg:px-0 py-5 cursor-default">
+            <div className="text-gray-600 text-xs px-2 lg:px-0 cursor-default">
                 <Link href={'/'}> Home </Link>
                 {'>'}
                 <Link href={'/productos/todos'}> Shop </Link>

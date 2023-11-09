@@ -90,7 +90,7 @@ if (items.length === 0) return
                                 <Link key={link.name} href={link.href} className={`${categoria === link.name ? 'text-[#B88E2F] font-bold border-b border-[#B88E2F]' : ''} cursor-pointer hover:text-[#B88E2F]`}>{link.name}</Link>
                             ))}
                         </nav>
-                        <p className="hidden md:block pl-2">{items.length} resultados</p>
+                        <p className="hidden md:block pl-2 cursor-default">{items.length} resultados</p>
                     </div>
                     <select className="bg-[#faedde] outline-none cursor-pointer">
                         <option value="relevante">Más Relevante</option>

@@ -8,26 +8,7 @@ import cartIcon from "@/assets/header/cart.png"
 import { useState } from "react";
 import MenuList from "./menuList";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-const imagenes = [
-    {
-        nombre: 'userIcon',
-        img: userIcon
-    },
-    {
-        nombre: 'searchIcon',
-        img: searchIcon
-    },
-    {
-        nombre: 'heartIcon',
-        img: heartIcon
-    },
-    {
-        nombre: 'cartIcon',
-        img: cartIcon
-    }
-]
+import MenuCart from "../Cart/menuCart";
 
 const links = [
     {
@@ -46,10 +27,14 @@ const links = [
 
 const Menu = () => {
     const [open, setOpen] = useState<boolean>(false)
-    const pathname = usePathname()
+    const [openCart, setOpenCart] = useState<boolean>(false)
 
     const handleMenu = () => {
         setOpen(!open)
+    }
+
+    const mostrarCart = () => {
+        setOpenCart(!openCart)
     }
 
     return ( 
@@ -66,24 +51,42 @@ const Menu = () => {
                 ))}
             </div>
             <div className="hidden md:flex gap-5 xl:gap-10 items-center">
-                { imagenes.map( imagen => (
-                    <Image
-                        key={imagen.nombre}
-                        alt={imagen.nombre}
-                        src={imagen.img}
-                        width={25}
-                        className="cursor-pointer"
-                    />
-                ))}
+                <Image
+                    alt=''
+                    src={userIcon}
+                    width={25}
+                    className="cursor-pointer"
+                />
+                <Image
+                    alt=''
+                    src={searchIcon}
+                    width={25}
+                    className="cursor-pointer"
+                />
+                <Image
+                    alt=''
+                    src={heartIcon}
+                    width={25}
+                    className="cursor-pointer"
+                />
+                <Image
+                    alt=''
+                    src={cartIcon}
+                    width={25}
+                    className="cursor-pointer"
+                    onClick={mostrarCart}
+                />
             </div>
-            <div onClick={handleMenu} className="flex md:hidden cursor-pointer">
+            <div className="flex md:hidden cursor-pointer">
                 <Image
                     alt="menu"
                     src={menuIcon}
                     width={35}
+                    onClick={handleMenu}
                 />
             </div>
-            <MenuList open={open} setOpen={setOpen}/>
+            <MenuList open={open} setOpen={setOpen} openCart={openCart} setOpenCart={setOpenCart} />
+            <MenuCart openCart={openCart} setOpenCart={setOpenCart}/>
         </>
      );
 }
