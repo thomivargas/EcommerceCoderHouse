@@ -92,7 +92,7 @@ if (items.length === 0) return
                         <p className="hidden md:block pl-2">{items.length} resultados</p>
                     </div>
                     <div>
-                        <select className="bg-[#faedde] outline-none">
+                        <select className="bg-[#faedde] outline-none cursor-pointer">
                             <option value="">Más Relevante</option>
                             <option value="">Mayor Precio</option>
                             <option value="">Menor Precio</option>

@@ -29,17 +29,17 @@ const Categoria = () => {
                 <h1 className="font-bold text-xl md:text-3xl">Categorias</h1>
                 <p className="text-[#757575] font-semibold text-xs md:text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
-            <div className="flex flex-col md:flex-row gap-3 justify-between text-center font-bold text-2xl">
+            <div className="flex flex-col md:flex-row md:gap-10 justify-between text-center font-bold text-2xl">
                 { categoria.map( item => (
                     <Link href={item.href} className="cursor-pointer imagenOscura" key={item.name}>
                         <Image
                             src={item.img}
-                            width={380}
-                            height={480}
+                            width={300}
+                            height={300}
                             alt=""
-                            className="w-[80%] md:w-full mx-auto"
+                            className="mx-auto"
                         />
-                        <h2 className="my-4 text-lg md:text-2xl">{item.name}</h2>
+                        <h2 className="my-2 text-xl md:text-2xl">{item.name}</h2>
                     </Link>
                 ))}
             </div>
