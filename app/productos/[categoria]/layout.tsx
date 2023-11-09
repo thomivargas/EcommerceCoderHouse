@@ -6,6 +6,7 @@ import unoIcono from '@/assets/Icon/trofeoIcon.png'
 import dosIcono from '@/assets/Icon/checkIcon.png'
 import tresIcono from '@/assets/Icon/cajaIcon.png'
 import cuatroIcono from '@/assets/Icon/asistenciaIcon.png'
+import { useState } from "react";
 
 type Params = {
     categoria: string; 
@@ -91,32 +92,28 @@ if (items.length === 0) return
                         </nav>
                         <p className="hidden md:block pl-2">{items.length} resultados</p>
                     </div>
-                    <div>
-                        <select className="bg-[#faedde] outline-none cursor-pointer">
-                            <option value="">Más Relevante</option>
-                            <option value="">Mayor Precio</option>
-                            <option value="">Menor Precio</option>
-                        </select>
-                    </div>
+                    <select className="bg-[#faedde] outline-none cursor-pointer">
+                        <option value="relevante">Más Relevante</option>
+                        <option value="mayorprecio">Mayor Precio</option>
+                        <option value="menorprecio">Menor Precio</option>
+                    </select>
                 </div>
             </div>
             {children}
-            <div className="bg-[#EBEBEB] cursor-default">
-                <div className="container mx-auto grid justify-center md:grid-cols-2 2xl:grid-cols-4 gap-14 md:gap-10 py-4">
-                    { divs.map(elemento => (
-                        <div key={elemento.titulo} className="flex gap-4">
-                            <Image
-                                src={elemento.icono}
-                                alt=""
-                                width={50}
-                            />
-                            <div>
-                                <h1 className="font-bold text-xl">{elemento.titulo}</h1>
-                                <h2 className="text-sm text-[#919191]">{elemento.texto}</h2>
-                            </div>
+            <div className="container cursor-default mx-auto grid justify-center md:grid-cols-2 2xl:grid-cols-4 gap-14 md:gap-10 py-4">
+                { divs.map(elemento => (
+                    <div key={elemento.titulo} className="flex gap-4">
+                        <Image
+                            src={elemento.icono}
+                            alt=""
+                            width={50}
+                        />
+                        <div>
+                            <h1 className="font-bold text-xl">{elemento.titulo}</h1>
+                            <h2 className="text-sm text-[#919191]">{elemento.texto}</h2>
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
             </div>
             <Footer/>
         </>

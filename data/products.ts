@@ -34,11 +34,13 @@ export const mockData = [
         image: mesaNegra,
         imageHover: mesaNegraHover,
         type: 'dining',
-        nuevo: false
+        nuevo: false,
+        calificacion: 4,
+        review: 550
     },
     {
         title: `Juego Comedor Mesa Fija Negra Con 6 Sillas Reforzadas`,
-        description: `Muebles CyA pablo podesta PRODUCTO : Mesa de 160x80 fija en color negro LAQUEADO SEMIMATE 6 sillas reforzadas el color del tapizado es a elección TODOS LOS DETALLES LO COORDIANAMOS LUEGO DE REALIZADA LA COMPRA ENVÍO A CARGO DEL COMPRADOR envio en GBA Y CABA es con un flete , el costo del flete varia segun la localidad consultar conto antes de comprar hacemos envio a todo el pais`,
+        description: `Muebles CyA pablo podesta PRODUCTO : Mesa de 160x80 fija en color negro LAQUEADO SEMIMATE 6 sillas reforzadas el color del tapizado es a elección. Envio en GBA Y CABA es con un flete , el costo del flete varia segun la localidad consultar conto antes de comprar hacemos envio a todo el pais`,
         inStock: 33,
         original_price: 350430,
         price: 193195,
@@ -47,11 +49,13 @@ export const mockData = [
         image: mesaAzul,
         imageHover: mesaAzulHover,
         type: 'dining',
-        nuevo: false
+        nuevo: false,
+        calificacion: 3.5,
+        review: 450
     },
     {
         title: `Juego De Comedor, Mesa Fija Color Paraiso +6 Sillas Chenille`,
-        description: `Amoblamientos Nick, Diseño, Creación y Fabricación Exclusiva ,ATENCION Venta Directa por Mayor y Menor con Garantía Oficial de Calidad a Valores Sin Competencia © HACEMOS ENVIOS POR EXPRESO A TODO DEL INTERIOR (Se abona embalaje) NO OFERTAR Sin Preguntar POR ENVIOS AL INTERIOR! NO HACEMOS ENVIOS GRATIS BAJO NINGUN CONCEPTO`,
+        description: `Amoblamientos Nick, Diseño, Creación y Fabricación Exclusiva ,ATENCION Venta Directa por Mayor y Menor con Garantía Oficial de Calidad a Valores Sin Competencia © HACEMOS ENVIOS POR EXPRESO A TODO DEL INTERIOR (Se abona embalaje)`,
         inStock: 930,
         original_price: 450430,
         price: 250499,
@@ -60,7 +64,9 @@ export const mockData = [
         image: mesaAmarilla,
         imageHover: mesaAmarillaHover,
         type: 'dining',
-        nuevo: false
+        nuevo: false,
+        calificacion: 5,
+        review: 600
     },
     {
         title: `Juego De Living, Sillon De Tres Cuerpo, Matera Y Mesa Ratona`,
@@ -80,7 +86,10 @@ export const mockData = [
         image: sillonAzul,
         imageHover: sillonAzulHover,
         type: 'living',
-        nuevo: false
+        nuevo: false,
+        size: ['L', 'XL', 'XS'],
+        calificacion: 4.5,
+        review: 300
     },
     {
         title: `Sillon De 3 Cuerpos Con Camastro`,
@@ -98,7 +107,10 @@ export const mockData = [
         image: sillonMarron,
         imageHover: sillonMarronHover,
         type: 'living',
-        nuevo: true
+        nuevo: true,
+        size: ['L', 'XL', 'XS'],
+        calificacion: 3,
+        review: 220
     },
     {
         title: `Juegos Completo De Living De 2 Cuerpos Con Camastro`,
@@ -113,7 +125,10 @@ export const mockData = [
         image: sillonRojo,
         imageHover: sillonRojoHover,
         type: 'living',
-        nuevo: true
+        nuevo: true,
+        size: ['L', 'XL', 'XS'],
+        calificacion: 4,
+        review: 100
     },
     {
         title: `Box De Cama Base Somier Con Cajonera + Zapatero 1,40 Mts`,
@@ -126,7 +141,10 @@ export const mockData = [
         image: camaUno,
         imageHover: camaUnoHover,
         type: 'bedroom',
-        nuevo: false
+        nuevo: false,
+        size: ['L', 'XL', 'XS'],
+        calificacion: 5,
+        review: 60
     },
     {
         title: `Cama Box Cajonera Con Zapatero P/ 140 X 190`,
@@ -134,24 +152,30 @@ export const mockData = [
         inStock: 15,
         original_price: 0,
         price: 499999,
-        slug: 'cama-box-cajonera-con-zapatero-p/140-X-190',
+        slug: 'cama-box-cajonera-con-zapatero-p-140-X-190',
         cuotas: {cantidad: 12, precioCuota: 43966, descuento: 0},
         image: camaDos,
         imageHover: camaDosHover,
         type: 'bedroom',
-        nuevo: true
+        nuevo: true,
+        size: ['L', 'XL', 'XS'],
+        calificacion: 3.5,
+        review: 653
     },
     {
         title: `Cama De Dos Plazas Con Respaldo Repisa Melamina 1,50m Ancho`,
-        description: `Disfruta de un descanso placentero y un diseño moderno con la Cama de Dos Plazas con Respaldo Repisa de Orlandi. Esta cama de 1,50m de ancho es perfecta para quienes buscan comodidad y estilo en su dormitorio. Fabricada en melamina de alta calidad, esta cama de dos plazas es resistente y duradera, soportando hasta 100 kg de peso. El color marrón principal aporta calidez y elegancia a cualquier ambiente. Además, el respaldo repisa incorporado te permite guardar tus objetos personales y decorativos de forma práctica y ordenada. Con unas dimensiones de 211 cm de largo, 150 cm de ancho y 212 cm de altura, esta cama es ideal para espacios amplios y cómodos. Requiere ensamblado, lo que te permite armarla a tu gusto y adaptarla a tus necesidades. Aunque no cuenta con cajones, su diseño minimalista y funcional te brindará el confort que necesitas para un buen descanso. No esperes más y elige la Cama de Dos Plazas con Respaldo Repisa de Orlandi para transformar tu dormitorio en un espacio acogedor y sofisticado.`,
+        description: `Disfruta de un descanso placentero y un diseño moderno con la Cama de Dos Plazas con Respaldo Repisa de Orlandi. Esta cama de 1,50m de ancho es perfecta para quienes buscan comodidad y estilo en su dormitorio. Fabricada en melamina de alta calidad, esta cama de dos plazas es resistente y duradera, soportando hasta 100 kg de peso.`,
         inStock: 60,
         original_price: 0,
         price: 530879,
         cuotas: {cantidad: 6, precioCuota: 63966, descuento: 0},
-        slug: 'cama-de-dos-plazas-con-respaldo-repisame-lamina-1,50m',
+        slug: 'cama-de-dos-plazas-con-respaldo-repisame-lamina-150m',
         image: camaTres,
         imageHover: camaTresHover,
         type: 'bedroom',
         nuevo: true,
+        size: ['L', 'XL', 'XS'],
+        calificacion: 5,
+        review: 100
     },
 ]

@@ -15,7 +15,10 @@ interface itemProducto {
     image: StaticImageData,
     imageHover: StaticImageData,
     type: string,
-    nuevo: boolean
+    nuevo: boolean,
+    size?: string[],
+    calificacion: number,
+    review: number
 }
 
 const ProductoCard = ({item} : { item: itemProducto }) => {

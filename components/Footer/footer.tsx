@@ -24,7 +24,7 @@ const Footer = () => {
                     <li>politica de privacidad</li>
                 </ul>
             </div>
-            <div className="flex flex-col gap-5 md:gap-10 text-sm">
+            <div className="lg:flex flex-col gap-5 md:gap-10 text-sm hidden">
                 <p className="text-[#757575]">Recibir Ofertas</p>
                 <div>
                     <input type="text" className="p-2 border-b border-black mr-5" placeholder="Ingresar tu email"/>
