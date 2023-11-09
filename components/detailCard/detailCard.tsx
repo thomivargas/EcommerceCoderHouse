@@ -62,8 +62,8 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
             </div>
             <section className="lg:w-4/5 mx-2 lg:mx-auto my-10 cursor-default">
                 <div className="flex flex-col lg:flex-row items-center lg:items-start lg:gap-10">
-                    <div 
-                        className="h-[500px] w-full md:w-[500px] grid place-items-center"
+                    <div
+                        className="h-[500px] w-full md:w-[500px] relative grid place-items-center"
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
                     >
@@ -72,10 +72,21 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
                             width={500}
                             alt=""
                         />
+                        <div className={`absolute top-3 right-3 opacity-80 h-10 w-10 rounded-full grid place-items-center ${item.nuevo ? 'bg-green-600' : 'bg-red-600'}`}>
+                            <p className="text-xs text-white font-medium">
+                                {item.nuevo ? 'New'
+                                    : `%${item.cuotas.descuento}`}
+                            </p>
+                        </div>
                     </div>
                     <div className="flex flex-col gap-2">
                         <h1 className="max-w-lg font-semibold text-2xl lg:text-3xl">{item.title}</h1>
-                        <h2 className="text-gray-400 text-2xl font-semibold">{formatter.format(item.price)}</h2>
+                        <div className="flex gap-1">
+                            <h2 className="text-gray-400 text-2xl font-semibold">{formatter.format(item.price)}</h2>
+                            {item.original_price > 0 &&
+                                <p className="text-xs text-[#7c7c7c] line-through">{formatter.format(item.original_price)}</p>}
+                        </div>
+                        <p className="text-[#7c7c7c] text-sm">En {item.cuotas.cantidad} X {formatter.format(item.cuotas.precioCuota)}</p>
                         <div className="flex">
                             {obtenerEstrellas()}
                             <p className="text-gray-400">{`| ${item.review} vistas`}</p>
@@ -83,30 +94,29 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
                         <p className="max-w-xl lg:max-w-md text-sm">{item.description}</p>
                         <h3 className="text-[#B88E2F]">En Stock: <span className="text-black">{item.inStock} unidaddes</span></h3>
                         {item?.size &&
-                        <div>
-                            <h3 className="text-gray-400">Size</h3>
-                            <div className="flex gap-5 my-2">
-                                {item.size.map(itemSize => (
-                                    <div 
-                                        key={itemSize} 
-                                        onClick={() => manejarClick(itemSize)}
-                                        className={`h-10 w-10 cursor-pointer grid place-items-center rounded ${
-                                          sizeClik === itemSize ? 'bg-[#B88E2F] text-white' : ''
-                                        }`}
-                                    >
-                                        <p>{itemSize}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>}
+                            <div>
+                                <h3 className="text-gray-400">Size</h3>
+                                <div className="flex gap-5 my-2">
+                                    {item.size.map(itemSize => (
+                                        <div
+                                            key={itemSize}
+                                            onClick={() => manejarClick(itemSize)}
+                                            className={`h-10 w-10 cursor-pointer grid place-items-center rounded ${sizeClik === itemSize ? 'bg-[#B88E2F] text-white' : ''
+                                                }`}
+                                        >
+                                            <p>{itemSize}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>}
                         <div className="mt-10 flex gap-5">
                             <div className="flex gap-5 text-xl border border-[#aaa] rounded-xl px-4 py-2">
-                                <button 
+                                <button
                                     className="cursor-pointer"
                                     onClick={() => setCantidad(cantidad > 1 ? cantidad - 1 : 1)}
-                                    >-</button>
+                                >-</button>
                                 <p>{cantidad}</p>
-                                <button 
+                                <button
                                     className="cursor-pointer"
                                     onClick={() => setCantidad(item.inStock > cantidad ? cantidad + 1 : item.inStock)}
                                 >+</button>
