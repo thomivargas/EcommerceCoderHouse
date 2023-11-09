@@ -2,5 +2,5 @@ Este Proyecto es sobre una tienda de hogar, el diseño trate de hacer lo mas par
 
 Tiene diseño responsive, se agradeceria cualquier critica para mejorar.
 
-No se como cambiar el icono de donde sale el nombre segurom tampoco el font'family no lo entendi muy bien, y otra pregunta si se puede usar redux-toolkit para el carrito.
+No se como cambiar el icono de donde sale el nombre, tampoco el font-family no lo entendi muy bien, y otra pregunta si se puede usar redux-toolkit para el carrito.
 
