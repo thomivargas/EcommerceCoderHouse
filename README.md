@@ -4,3 +4,5 @@ Tiene diseño responsive, se agradeceria cualquier critica para mejorar.
 
 No se como cambiar el icono de donde sale el nombre, tampoco el font-family no lo entendi muy bien, y otra pregunta si se puede usar redux-toolkit para el carrito.
 
+tambien le hice el deploy en vercel para guiarme con el responsive: [`deploy`](https://ecommerce-coder-house.vercel.app/).
+
