@@ -75,7 +75,7 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
                         <div className={`absolute top-3 right-3 opacity-80 h-10 w-10 rounded-full grid place-items-center ${item.nuevo ? 'bg-green-600' : 'bg-red-600'}`}>
                             <p className="text-xs text-white font-medium">
                                 {item.nuevo ? 'New'
-                                    : `%${item.cuotas.descuento}`}
+                                    : `${item.cuotas.descuento}%`}
                             </p>
                         </div>
                     </div>
@@ -121,9 +121,9 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
                                     onClick={() => setCantidad(item.inStock > cantidad ? cantidad + 1 : item.inStock)}
                                 >+</button>
                             </div>
-                            <div className="flex gap-5 cursor-pointer text-xl border border-black hover:border-[#B88E2F] hover:text-[#B88E2F] rounded-xl px-4 py-2">
-                                <p>Agregar al carrito</p>
-                            </div>
+                            <button className="cursor-pointer text-xl border border-black hover:border-[#B88E2F] hover:text-[#B88E2F] rounded-xl px-4 py-2">
+                                Agregar al carrito
+                            </button>
                         </div>
                     </div>
                 </div>

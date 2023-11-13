@@ -40,7 +40,7 @@ const ProductoCard = ({item} : { item: itemProducto }) => {
         <div className={`absolute top-3 right-3 opacity-80 h-9 w-9 rounded-full grid place-items-center ${item.nuevo ? 'bg-green-600' : 'bg-red-600'}`}>
           <p className="text-xs text-white font-medium">
             {item.nuevo ? 'New' 
-            : `%${item.cuotas.descuento}`}
+            : `${item.cuotas.descuento}%`}
           </p>
         </div>
       </div>

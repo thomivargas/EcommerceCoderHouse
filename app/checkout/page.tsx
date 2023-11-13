@@ -1,7 +1,7 @@
 const checkout = () => {
     return ( 
         <div>
-            holis
+            diego
         </div>
      );
 }
