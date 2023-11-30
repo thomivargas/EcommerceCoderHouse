@@ -1,5 +1,5 @@
 import Image from "next/image";
-import camaUno from '@/assets/products/bedroom/cama-uno.webp'
+import camaUno from '@/public/products/cama-uno.webp'
 import eliminar from '@/assets/Icon/eliminarIcon.png'
 import CantidadComponent from "@/components/Cart/cantidadComponent";
 import Link from "next/link";

@@ -1,23 +1,39 @@
 import Footer from "@/components/Footer/footer"
 import DetailCard from "@/components/detailCard/detailCard"
-import { mockData } from "@/data/products"
 
 type Params = {
     slug: string
 }
 
-const DetailPage = ({params} : {params: Params}) => {
+type Producto = {
+    title: string,
+    description: string,
+    inStock: number,
+    original_price: number,
+    price: number,
+    cuotas: { cantidad: number, precioCuota: number, descuento: number },
+    slug: string,
+    image: string,
+    imageHover: string,
+    type: string,
+    nuevo: boolean,
+    size?: string[],
+    calificacion: number,
+    review: number
+}
+
+const DetailPage = async ({params} : {params: Params}) => {
     const {slug} = params
-    const items = mockData.filter(product => product.slug === slug)
+    const data = await fetch(`http://localhost:3000/api/product/${slug}`,
+        { cache: 'no-store' }
+    ).then(r => r.json());
 
     return (
         <>
             <main className="container mx-auto">
-                {items.map(item => (
-                    <div key={item.slug}>
-                        <DetailCard item={item}/>
-                    </div>
-                ))}
+                <div>
+                    <DetailCard item={data}/>
+                </div>
             </main>
             <Footer/>
         </>

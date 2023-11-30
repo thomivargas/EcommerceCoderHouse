@@ -2,7 +2,7 @@ import Image from "next/image";
 import cancel from '@/assets/Icon/cancel.svg'
 import cancelRelleno from '@/assets/Icon/cancel-relleno.svg'
 
-import camaUno from '@/assets/products/bedroom/cama-uno.webp'
+import camaUno from '@/public/products/cama-uno.webp'
 import Link from "next/link";
 
 interface MenuProps {

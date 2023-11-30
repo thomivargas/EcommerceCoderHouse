@@ -3,12 +3,13 @@ import Image from "next/image";
 import ubic from '@/assets/Icon/ubicIcon.png'
 import tel from '@/assets/Icon/telefonoIcon.png'
 import reloj from '@/assets/Icon/relojIcon.png'
+import FormularioContacto from "@/components/Contacto/FormularioContacto";
 
 const Contacto = () => {
     const zoom = 18;
-
     const lat = -31.5434922;
     const lon = -68.5543543;
+
     return ( 
         <>
             <section className="container mx-auto my-16">
@@ -53,35 +54,7 @@ const Contacto = () => {
                             <p className="text-xs max-w-[100px] text-right">Saturday-Sunday: 9:00 - 21:00</p>
                         </div>
                     </div>
-                    <form className="w-[380px] flex flex-col gap-10">
-                        <div className="flex flex-col gap-2 w-full">
-                            <label>Tu nombre</label>
-                            <input 
-                                type="text" 
-                                placeholder="Abc"
-                                className="border border-[#ccc] p-2 rounded-md"
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2 w-full">
-                            <label>Tu email</label>
-                            <input 
-                                type="email" 
-                                placeholder="@Abc"
-                                className="border border-[#ccc] p-2 rounded-md "
-                            />
-                        </div>
-                        <div className="flex flex-col gap-2 w-full">
-                            <label>Mensaje</label>
-                            <textarea
-                                placeholder="¡Hola! me gustaría preguntar sobre"
-                                className="border border-[#ccc] p-2 rounded-md max-h-44"
-                            />
-                        </div>
-                        <button className="bg-[#B88E2F] text-white rounded-md py-1.5 hover:bg-[#B88E2F]/90 active:scale-95">
-                            Enviar
-                        </button>
-                    </form>
-                    
+                    <FormularioContacto/>
                 </div>
             </section>
             <iframe 

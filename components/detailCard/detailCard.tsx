@@ -1,6 +1,6 @@
 "use client"
 import { formatter } from "@/utils/Formatter"
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import estrella from '@/assets/Icon/estrella.svg'
 import estrellaMedia from '@/assets/Icon/mediaestrella.svg'
 import estrellaVacia from '@/assets/Icon/estrellavacia.svg'
@@ -15,8 +15,8 @@ interface itemProducto {
     price: number,
     cuotas: { cantidad: number, precioCuota: number, descuento: number },
     slug: string,
-    image: StaticImageData,
-    imageHover: StaticImageData,
+    image: string,
+    imageHover: string,
     type: string,
     nuevo: boolean,
     size?: string[],
@@ -68,8 +68,9 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
                         onMouseLeave={() => setIsHovered(false)}
                     >
                         <Image
-                            src={isHovered ? item.imageHover : item.image}
+                            src={`/products/${isHovered ? item.imageHover : item.image}`}
                             width={500}
+                            height={500}
                             alt=""
                         />
                         <div className={`absolute top-3 right-3 opacity-80 h-10 w-10 rounded-full grid place-items-center ${item.nuevo ? 'bg-green-600' : 'bg-red-600'}`}>

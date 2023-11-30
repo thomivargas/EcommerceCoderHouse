@@ -1,25 +1,37 @@
 import ProductoCard from "@/components/productoCard/productoCard";
-import { mockData } from "@/data/products"
 
 type Params = {
-    categoria: string; 
+    categoria: string;
 }
 
-const Productos = ({params} : {params: Params}) => {
-    const { categoria } = params
+type Producto = {
+    title: string,
+    description: string,
+    inStock: number,
+    original_price: number,
+    price: number,
+    cuotas: { cantidad: number, precioCuota: number, descuento: number },
+    slug: string,
+    image: string,
+    imageHover: string,
+    type: string,
+    nuevo: boolean,
+    size?: string[],
+    calificacion: number,
+    review: number
+}
 
-    const items = categoria === 'todos'
-                    ? mockData
-                    : mockData.filter(product => product.type === categoria)
+const Productos = async ({ params }: { params: Params }) => {
+    const data = await fetch(`http://localhost:3000/api/productos/${params.categoria}`,
+        { cache: 'no-store' }
+    ).then(r => r.json());
 
-    if (items.length === 0) return
-    
     return (
         <main className="bg-[#EBEBEB]">
             <div className="container mx-auto">
                 <div className="py-24 grid justify-center md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-10">
-                    {items.map(item => (
-                        <ProductoCard key={item.slug} item={item}/>
+                    {data.map((item: Producto) => (
+                        <ProductoCard key={item.slug} item={item} />
                     ))}
                 </div>
             </div>

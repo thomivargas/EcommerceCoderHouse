@@ -12,8 +12,8 @@ interface itemProducto {
     price: number,
     cuotas: {cantidad: number, precioCuota: number, descuento: number},
     slug: string,
-    image: StaticImageData,
-    imageHover: StaticImageData,
+    image: string,
+    imageHover: string,
     type: string,
     nuevo: boolean,
     size?: string[],
@@ -23,7 +23,6 @@ interface itemProducto {
 
 const ProductoCard = ({item} : { item: itemProducto }) => {
   const [isHovered, setIsHovered] = useState(false);
-
   return (
     <Link
       href={`/productos/detail/${item.slug}`} 
@@ -33,8 +32,9 @@ const ProductoCard = ({item} : { item: itemProducto }) => {
     >
       <div className="relative h-[270px] grid place-items-center">
         <Image
-            src={isHovered ? item.imageHover : item.image}
+            src={`/products/${isHovered ? item.imageHover : item.image}`}
             width={250}
+            height={250}
             alt=""
         />
         <div className={`absolute top-3 right-3 opacity-80 h-9 w-9 rounded-full grid place-items-center ${item.nuevo ? 'bg-green-600' : 'bg-red-600'}`}>

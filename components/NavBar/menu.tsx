@@ -22,6 +22,10 @@ const links = [
     {
         label: 'Contactanos',
         href: '/contacto'
+    },
+    {
+        label: 'Posts',
+        href: '/posts'
     }
 ]
 
