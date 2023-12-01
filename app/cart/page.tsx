@@ -7,9 +7,9 @@ import Link from "next/link";
 const Cart = () => {
     return ( 
         <section className="mb-40 container mx-auto">
-            {/* Esto es hasta que haga la logica del carrito */}
         <h1 className="p-5 text-xl font-semibold">Shopping Cart</h1>
             <div className="min-h-[80vh] lg:min-h-[45vh] flex flex-col lg:flex-row gap-10 justify-between">
+                {/* { itemCart\} */}
                 <div className="w-full lg:w-[60%] flex flex-col gap-10">
                     <div className="h-[100px] cursor-default flex items-center justify-between shadow shadow-gray-400 rounded-xl px-4 py-2">
                         <Image

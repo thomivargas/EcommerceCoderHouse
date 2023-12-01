@@ -21,6 +21,17 @@ type Producto = {
     review: number
 }
 
+export function generateStaticParams (){
+    return [
+        { categoria: 'todos'},
+        { categoria: 'living'},
+        { categoria: 'bedroom'},
+        { categoria: 'dining'}
+    ]
+}
+
+export const revalidate = 3600
+
 const Productos = async ({ params }: { params: Params }) => {
     const data = await fetch(`http://localhost:3000/api/productos/${params.categoria}`,
         { cache: 'no-store' }

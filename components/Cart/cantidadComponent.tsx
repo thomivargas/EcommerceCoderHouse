@@ -14,7 +14,6 @@ const CantidadComponent = () => {
             <p>{cantidad}</p>
             <button
                 className="cursor-pointer"
-                //onClick={() => setCantidad(item.inStock > cantidad ? cantidad + 1 : item.inStock)}
                 onClick={() => setCantidad(cantidad + 1)}
             >+</button>
         </div>

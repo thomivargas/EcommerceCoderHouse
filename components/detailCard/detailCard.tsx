@@ -6,6 +6,8 @@ import estrellaMedia from '@/assets/Icon/mediaestrella.svg'
 import estrellaVacia from '@/assets/Icon/estrellavacia.svg'
 import Link from "next/link"
 import { useState } from "react"
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { addToCart } from "@/redux/slices/cartSlice"
 
 interface itemProducto {
     title: string,
@@ -22,6 +24,7 @@ interface itemProducto {
     size?: string[],
     calificacion: number,
     review: number
+    cantidad: number
 }
 
 const DetailCard = ({ item }: { item: itemProducto }) => {
@@ -29,10 +32,16 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
     const [sizeClik, setSizeClik] = useState<string | null>(null);
     const [cantidad, setCantidad] = useState(1)
     const [isHovered, setIsHovered] = useState(false);
+    const itemCart = useAppSelector((state) => state.cart.data)
+    const dispatch = useAppDispatch()
 
     const manejarClick = (letra: string) => {
         setSizeClik(letra === sizeClik ? null : letra);
     };
+
+    const agregarCarrito = (item : itemProducto) => {
+        dispatch(addToCart({...item, cantidad}))
+    }
 
     const obtenerEstrellas = () => {
         const estrellas = [];
@@ -51,6 +60,11 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
         return estrellas;
     };
 
+    const handleCantidadChange = (item : itemProducto , cantidad : number) => {
+        setCantidad(cantidad);
+        dispatch(addToCart({...item, cantidad}));
+    };
+ 
     return (
         <>
             <div className="text-gray-600 text-xs px-2 lg:px-0 cursor-default">
@@ -114,15 +128,18 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
                             <div className="flex gap-5 text-xl border border-[#aaa] rounded-xl px-4 py-2">
                                 <button
                                     className="cursor-pointer"
-                                    onClick={() => setCantidad(cantidad > 1 ? cantidad - 1 : 1)}
+                                    onClick={() => handleCantidadChange(item, cantidad > 1 ? cantidad - 1 : 1)}
                                 >-</button>
                                 <p>{cantidad}</p>
                                 <button
                                     className="cursor-pointer"
-                                    onClick={() => setCantidad(item.inStock > cantidad ? cantidad + 1 : item.inStock)}
+                                    onClick={() => handleCantidadChange(item, item.inStock > cantidad ? cantidad + 1 : item.inStock)}
                                 >+</button>
                             </div>
-                            <button className="cursor-pointer text-xl border border-black hover:border-[#B88E2F] hover:text-[#B88E2F] rounded-xl px-4 py-2">
+                            <button 
+                                className="cursor-pointer text-xl border border-black hover:border-[#B88E2F] hover:text-[#B88E2F] rounded-xl px-4 py-2"
+                                onClick={() => agregarCarrito(item)}
+                            >
                                 Agregar al carrito
                             </button>
                         </div>
