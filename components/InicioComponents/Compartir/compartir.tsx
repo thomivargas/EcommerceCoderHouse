@@ -22,12 +22,14 @@ const Compartir = () => {
                         <Image
                             src={compartir_1}
                             width={80}
+                            height={80}
                             alt=""
                             className="hidden lg:flex"
                         />
                         <Image
                             src={compartir_2}
                             width={300}
+                            height={300}
                             alt=""
                         />
                     </div>
@@ -35,12 +37,14 @@ const Compartir = () => {
                         <Image
                             src={compartir_3}
                             width={180}
+                            height={180}
                             alt=""
                             className="hidden lg:flex"
                         />
                         <Image
                             src={compartir_4}
                             width={300}
+                            height={300}
                             alt=""
                         />
                     </div>
@@ -49,6 +53,7 @@ const Compartir = () => {
                     <Image
                         src={compartir_5}
                         width={500}
+                        height={500}
                         alt=""
                     />
                 </div>
@@ -57,11 +62,13 @@ const Compartir = () => {
                         <Image
                             src={compartir_6}
                             width={250}
+                            height={250}
                             alt=""
                         />
                         <Image
                             src={compartir_8}
                             width={200}
+                            height={200}
                             alt=""
                             className="hidden lg:flex"
                         />
@@ -70,12 +77,14 @@ const Compartir = () => {
                         <Image
                             src={compartir_7}
                             width={180}
+                            height={180}
                             alt=""
                             className="hidden lg:flex"
                         />
                         <Image
                             src={compartir_9}
                             width={270}
+                            height={270}
                             alt=""
                         />
                     </div>

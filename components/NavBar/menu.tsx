@@ -2,13 +2,14 @@
 import Image from "next/image";
 import menuIcon from "@/assets/menu.svg"
 import userIcon from "@/assets/header/user.png"
-import searchIcon from "@/assets/header/search.png"
-import heartIcon from "@/assets/header/heart.png"
+// import searchIcon from "@/assets/header/search.png"
+// import heartIcon from "@/assets/header/heart.png"
 import cartIcon from "@/assets/header/cart.png"
 import { useState } from "react";
 import MenuList from "./menuList";
 import Link from "next/link";
 import MenuCart from "../Cart/menuCart";
+import { useAppSelector } from "@/redux/hooks";
 
 const links = [
     {
@@ -23,15 +24,12 @@ const links = [
         label: 'Contactanos',
         href: '/contacto'
     },
-    {
-        label: 'Posts',
-        href: '/posts'
-    }
 ]
 
 const Menu = () => {
     const [open, setOpen] = useState<boolean>(false)
     const [openCart, setOpenCart] = useState<boolean>(false)
+    const itemsCart = useAppSelector( state => state.cart.data)
 
     const handleMenu = () => {
         setOpen(!open)
@@ -58,34 +56,42 @@ const Menu = () => {
                 <Image
                     alt=''
                     src={userIcon}
-                    width={25}
+                    width={28}
+                    height={28}
                     className="cursor-pointer"
                 />
-                <Image
+                {/* <Image
                     alt=''
                     src={searchIcon}
-                    width={25}
+                    width={28}
+                    height={28}
                     className="cursor-pointer"
-                />
-                <Image
+                /> */}
+                {/* <Image
                     alt=''
                     src={heartIcon}
-                    width={25}
+                    width={28}
+                    height={28}
                     className="cursor-pointer"
-                />
-                <Image
-                    alt=''
-                    src={cartIcon}
-                    width={25}
-                    className="cursor-pointer"
-                    onClick={mostrarCart}
-                />
+                /> */}
+                <div className="relative flex flex-col justify-between">
+                    <div className={`${itemsCart.length > 0 && 'absolute bottom-6 left-2 bg-[#B88E2F] w-5 h-5 rounded-full text-white flex items-center justify-center text-xs'}`}>{itemsCart.length > 0 ? itemsCart.length : ''}</div>
+                    <Image
+                        alt=''
+                        src={cartIcon}
+                        width={28}
+                        height={28}
+                        className="cursor-pointer"
+                        onClick={mostrarCart}
+                    />
+                </div>
             </div>
             <div className="flex md:hidden cursor-pointer">
                 <Image
                     alt="menu"
                     src={menuIcon}
-                    width={35}
+                    width={28}
+                    height={28}
                     onClick={handleMenu}
                 />
             </div>

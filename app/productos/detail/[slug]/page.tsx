@@ -1,25 +1,8 @@
-import Footer from "@/components/Footer/footer"
+import Footer from "@/components/InicioComponents/Footer/footer"
 import DetailCard from "@/components/detailCard/detailCard"
 
 type Params = {
     slug: string
-}
-
-type Producto = {
-    title: string,
-    description: string,
-    inStock: number,
-    original_price: number,
-    price: number,
-    cuotas: { cantidad: number, precioCuota: number, descuento: number },
-    slug: string,
-    image: string,
-    imageHover: string,
-    type: string,
-    nuevo: boolean,
-    size?: string[],
-    calificacion: number,
-    review: number
 }
 
 const DetailPage = async ({params} : {params: Params}) => {

@@ -1,5 +1,5 @@
-import Footer from "@/components/Footer/footer"
-import FooterIconos from "@/components/Footer/footerIconos"
+import Footer from "@/components/InicioComponents/Footer/footer"
+import FooterIconos from "@/components/InicioComponents/Footer/footerIconos"
 
 
 const CartLayout = ({

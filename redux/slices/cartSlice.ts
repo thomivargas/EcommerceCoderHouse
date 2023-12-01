@@ -1,29 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
-interface Data {
-    title: string,
-    description: string,
-    inStock: number,
-    original_price: number,
-    price: number,
-    cuotas: { cantidad: number, precioCuota: number, descuento: number },
-    slug: string,
-    image: string,
-    imageHover: string,
-    type: string,
-    nuevo: boolean,
-    size?: string[],
-    calificacion: number,
-    review: number,
-    cantidad?: number
-}
-
 interface CartAddState {
     msg: string;
     error: any;
     status: string;
-    data: Data[];
+    data: Producto[];
 }
 
 interface CartRemoveState {
@@ -41,7 +23,7 @@ export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Data>) => {
+    addToCart: (state, action: PayloadAction<Producto>) => {
         const { slug, cantidad } = action.payload;
 
         const existingItemIndex = state.data.findIndex(item => item.slug === slug);
@@ -58,7 +40,8 @@ export const cartSlice = createSlice({
         if (index !== -1) {
             state.data.splice(index, 1);
         }
-    }
+    },
+    
   },
 })
 

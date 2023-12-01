@@ -6,43 +6,26 @@ import estrellaMedia from '@/assets/Icon/mediaestrella.svg'
 import estrellaVacia from '@/assets/Icon/estrellavacia.svg'
 import Link from "next/link"
 import { useState } from "react"
-import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { useAppDispatch } from "@/redux/hooks"
 import { addToCart } from "@/redux/slices/cartSlice"
+import MenuCart from "../Cart/menuCart"
 
-interface itemProducto {
-    title: string,
-    description: string,
-    inStock: number,
-    original_price: number,
-    price: number,
-    cuotas: { cantidad: number, precioCuota: number, descuento: number },
-    slug: string,
-    image: string,
-    imageHover: string,
-    type: string,
-    nuevo: boolean,
-    size?: string[],
-    calificacion: number,
-    review: number
-    cantidad: number
-}
 
-const DetailCard = ({ item }: { item: itemProducto }) => {
+const DetailCard = ({ item }: { item: Producto }) => {
     const numEstrellas = 5
+    const [ openCart, setOpenCart ] = useState<boolean>(false)
     const [sizeClik, setSizeClik] = useState<string | null>(null);
     const [cantidad, setCantidad] = useState(1)
     const [isHovered, setIsHovered] = useState(false);
-    const itemCart = useAppSelector((state) => state.cart.data)
     const dispatch = useAppDispatch()
 
     const manejarClick = (letra: string) => {
         setSizeClik(letra === sizeClik ? null : letra);
     };
-
-    const agregarCarrito = (item : itemProducto) => {
+    const agregarCarrito = (item : Producto) => {
         dispatch(addToCart({...item, cantidad}))
+        setOpenCart(!openCart)
     }
-
     const obtenerEstrellas = () => {
         const estrellas = [];
         const calificacion = item.calificacion
@@ -58,11 +41,6 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
         }
 
         return estrellas;
-    };
-
-    const handleCantidadChange = (item : itemProducto , cantidad : number) => {
-        setCantidad(cantidad);
-        dispatch(addToCart({...item, cantidad}));
     };
  
     return (
@@ -128,12 +106,12 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
                             <div className="flex gap-5 text-xl border border-[#aaa] rounded-xl px-4 py-2">
                                 <button
                                     className="cursor-pointer"
-                                    onClick={() => handleCantidadChange(item, cantidad > 1 ? cantidad - 1 : 1)}
+                                    onClick={() => setCantidad(cantidad > 1 ? cantidad - 1 : 1)}
                                 >-</button>
                                 <p>{cantidad}</p>
                                 <button
                                     className="cursor-pointer"
-                                    onClick={() => handleCantidadChange(item, item.inStock > cantidad ? cantidad + 1 : item.inStock)}
+                                    onClick={() => setCantidad(item.inStock > cantidad ? cantidad + 1 : item.inStock)}
                                 >+</button>
                             </div>
                             <button 
@@ -145,7 +123,7 @@ const DetailCard = ({ item }: { item: itemProducto }) => {
                         </div>
                     </div>
                 </div>
-
+                <MenuCart openCart={openCart} setOpenCart={setOpenCart}/>                                
             </section>
         </>
     )

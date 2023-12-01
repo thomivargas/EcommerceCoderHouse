@@ -4,24 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
 
-interface itemProducto {
-    title: string,
-    description: string,
-    inStock: number,
-    original_price: number,
-    price: number,
-    cuotas: {cantidad: number, precioCuota: number, descuento: number},
-    slug: string,
-    image: string,
-    imageHover: string,
-    type: string,
-    nuevo: boolean,
-    size?: string[],
-    calificacion: number,
-    review: number
-}
-
-const ProductoCard = ({item} : { item: itemProducto }) => {
+const ProductoCard = ({item} : { item: Producto }) => {
   const [isHovered, setIsHovered] = useState(false);
   return (
     <Link

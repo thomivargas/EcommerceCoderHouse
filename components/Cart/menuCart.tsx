@@ -1,28 +1,27 @@
 'use client'
 import Image from "next/image";
+import Link from "next/link";
+import { formatter } from "@/utils/Formatter";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks"
+import { removeToCart } from "@/redux/slices/cartSlice";
 import cancel from '@/assets/Icon/cancel.svg'
 import cancelRelleno from '@/assets/Icon/cancel-relleno.svg'
-import { useAppDispatch, useAppSelector } from "@/redux/hooks"
-import Link from "next/link";
-import { removeToCart } from "@/redux/slices/cartSlice";
-import { formatter } from "@/utils/Formatter";
 
 interface MenuProps {
   openCart: boolean;
   setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const HandleCloseOff = (e : React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-}
-
 const MenuCart = ({ openCart, setOpenCart }: MenuProps) => {
     const itemCart = useAppSelector((state) => state.cart.data)
     const dispatch = useAppDispatch()
-
+    
     const handleCloseMenu = () => {
         setOpenCart(false);
     };
+    const HandleCloseOff = (e : React.MouseEvent<HTMLDivElement>) => {
+        e.stopPropagation();
+    }
 
     const eliminarCarrito = (slug : string) => {
         dispatch(removeToCart({slug}))
@@ -35,7 +34,7 @@ const MenuCart = ({ openCart, setOpenCart }: MenuProps) => {
         }, 0);
         const total = formatter.format(subtotal)
         return total;
-      };
+    };
 
   return (
     <div
@@ -49,8 +48,7 @@ const MenuCart = ({ openCart, setOpenCart }: MenuProps) => {
                 width={25}
                 height={25}
                 alt=""
-            />
-            
+            />         
         </div>
         <div className="h-full flex flex-col justify-between cursor-default">
             <div>
