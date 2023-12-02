@@ -11,7 +11,7 @@ interface CartAddState {
 interface CartRemoveState {
     slug: string | undefined
 }
-
+    
 const initialState: CartAddState = {
     msg: '',
     error: '',
