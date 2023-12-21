@@ -2,8 +2,6 @@
 import Image from "next/image";
 import menuIcon from "@/assets/menu.svg"
 import userIcon from "@/assets/header/user.png"
-// import searchIcon from "@/assets/header/search.png"
-// import heartIcon from "@/assets/header/heart.png"
 import cartIcon from "@/assets/header/cart.png"
 import { useState } from "react";
 import MenuList from "./menuList";
@@ -53,27 +51,17 @@ const Menu = () => {
                 ))}
             </div>
             <div className="hidden md:flex gap-5 xl:gap-10 items-center">
-                <Image
-                    alt=''
-                    src={userIcon}
-                    width={28}
-                    height={28}
-                    className="cursor-pointer"
-                />
-                {/* <Image
-                    alt=''
-                    src={searchIcon}
-                    width={28}
-                    height={28}
-                    className="cursor-pointer"
-                /> */}
-                {/* <Image
-                    alt=''
-                    src={heartIcon}
-                    width={28}
-                    height={28}
-                    className="cursor-pointer"
-                /> */}
+                <Link
+                    href={'/admin'}
+                >
+                    <Image
+                        alt=''
+                        src={userIcon}
+                        width={28}
+                        height={28}
+                        className="cursor-pointer"
+                    />
+                </Link>
                 <div className="relative flex flex-col justify-between">
                     <div className={`${itemsCart.length > 0 && 'absolute bottom-6 left-2 bg-[#B88E2F] w-5 h-5 rounded-full text-white flex items-center justify-center text-xs'}`}>{itemsCart.length > 0 ? itemsCart.length : ''}</div>
                     <Image

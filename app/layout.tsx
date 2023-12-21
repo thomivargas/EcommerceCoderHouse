@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import NavBar from "@/components/NavBar/navBar";
 import { Providers } from "@/redux/providers"
+import { AuthProvider } from '@/components/context/AuthContext';
 
 export const metadata: Metadata = {
   title: 'FuniroApp',
@@ -18,10 +19,12 @@ export default function RootLayout({
     <html lang="en">
       <body className='font-poppins'>
         <Providers>
+          <AuthProvider>
           <div className="container mx-auto my-5">
             <NavBar/>
-          </div>
-          {children}
+          </div>  
+            {children}
+          </AuthProvider>
         </Providers>
       </body>
     </html>

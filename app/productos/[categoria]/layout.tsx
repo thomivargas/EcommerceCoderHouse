@@ -41,7 +41,7 @@ const ProductosLayout = async ({
 }) => {
     const { categoria } = params
 
-    const data = await fetch(`http://localhost:3000/api/productos/${params.categoria}`,
+    const data = await fetch(`http://${process.env.VERCEL_URL}/api/productos/${params.categoria}`,
         { cache: 'no-store' }
     ).then(r => r.json());
 

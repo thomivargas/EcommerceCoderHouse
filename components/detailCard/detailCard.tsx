@@ -60,7 +60,7 @@ const DetailCard = ({ item }: { item: Producto }) => {
                         onMouseLeave={() => setIsHovered(false)}
                     >
                         <Image
-                            src={`/products/${isHovered ? item.imageHover : item.image}`}
+                            src={isHovered ? item.imageHover : item.image}
                             width={500}
                             height={500}
                             alt=""

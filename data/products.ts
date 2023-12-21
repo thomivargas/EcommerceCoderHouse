@@ -155,4 +155,19 @@ export const mockData = [
     //     calificacion: 5,
     //     review: 100
     // },
+    {
+        title: `Juego de comedor cediseno Moderno con 8 sillas mesa de 200cm de largo`,
+        description: `juego comedor 8 sillas`,
+        inStock: 102,
+        original_price: 835142,
+        price: 635142,
+        cuotas: {cantidad: 12, precioCuota: 127500, descuento: 20},
+        slug: 'juego de-comedor-moderno-000gczb',
+        image: 'mesa-negra.webp',
+        imageHover: 'sillas-negras.webp',
+        type: 'dining',
+        nuevo: false,
+        calificacion: 5,
+        review: 250
+    },
 ]

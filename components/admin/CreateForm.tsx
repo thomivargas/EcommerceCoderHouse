@@ -1,5 +1,42 @@
 'use client'
 import { useState } from "react"
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import { doc, setDoc } from "firebase/firestore";
+import { db, storage } from "@/firebase/config"
+
+interface ProductoFormulario {
+  title: string,
+  description: string,
+  inStock: number,
+  original_price: number,
+  price: number,
+  cuotas: {cantidad: number, precioCuota: number, descuento: number},
+  slug: string,
+  type: string,
+  nuevo: boolean,
+  calificacion: number,
+  review: number,
+}
+
+const createProduct = async (values : ProductoFormulario, file: File, fileHover: File) => {
+  const storageRef = ref(storage, values.slug);
+  const fileSnapshot = await uploadBytes(storageRef, file);
+  const fileURL = await getDownloadURL(fileSnapshot.ref);
+
+  const storageRefHover = ref(storage, `${values.slug}_hover`);
+  const fileSnapshotHover = await uploadBytes(storageRefHover, fileHover);
+  const fileHoverURL = await getDownloadURL(fileSnapshotHover.ref);
+
+  const docRef = doc(db, "productos", values.slug);
+
+  return setDoc(docRef, {
+    ...values,
+    image: fileURL,
+    imageHover: fileHoverURL,
+  })
+  .then(() => console.log("Producto agregado"))
+  .catch((error) => console.error("Error al agregar producto:", error));
+}
 
 const CreateForm = () => {
   const [ values, setValues ] = useState({
@@ -10,24 +47,56 @@ const CreateForm = () => {
     price: 0,
     cuotas: {cantidad: 0, precioCuota: 0, descuento: 0},
     slug: '',
-    image: '',
-    imageHover: '',
     type: '',
     nuevo: false,
     calificacion: 0,
-    review: 0
+    review: 0,
   }) 
+  const [ file, setFile ] = useState<File | null>(null);
+  const [ fileHover, setFileHover ] = useState<File | null>(null);
 
   const handleChange = (e : React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value 
-    })
+    const { name, value } = e.target;
+    if (name.startsWith("cuotas.")) {
+      const cuotasProp = name.split(".")[1];
+      setValues((prevValues) => ({
+        ...prevValues,
+        cuotas: {
+          ...prevValues.cuotas,
+          [cuotasProp]: parseFloat(value) || 0,
+        },
+      }));
+    } else if (name === "nuevo") {
+      // Asigna directamente el valor como booleano
+      setValues((prevValues) => ({
+        ...prevValues,
+        nuevo: value === "true",
+      }));
+    } else {
+      setValues((prevValues) => ({
+        ...prevValues,
+        [name]: value,
+      }));
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log(values)
+    e.preventDefault();
+    if(file === null || fileHover === null) return
+    await createProduct(values, file, fileHover);
+    setValues({
+      title: '',
+      description: '',
+      inStock: 0,
+      original_price: 0,
+      price: 0,
+      cuotas: {cantidad: 0, precioCuota: 0, descuento: 0},
+      slug: '',
+      type: '',
+      nuevo: false,
+      calificacion: 0,
+      review: 0,
+    })
   }
 
   return (
@@ -105,9 +174,8 @@ const CreateForm = () => {
             <input 
               type="number" 
               value={values.cuotas.cantidad}
-              required
               className="p-2 rounded w-full border border-blue-200 block my-4"
-              name="cantidad"
+              name="cuotas.cantidad"
               onChange={handleChange}
             />
           </div>
@@ -118,7 +186,7 @@ const CreateForm = () => {
               value={values.cuotas.precioCuota}
               required
               className="p-2 rounded w-full border border-blue-200 block my-4"
-              name="precioCuota"
+              name="cuotas.precioCuota"
               onChange={handleChange}
             />
           </div>
@@ -129,30 +197,24 @@ const CreateForm = () => {
               value={values.cuotas.descuento}
               required
               className="p-2 rounded w-full border border-blue-200 block my-4"
-              name="descuento"
+              name="cuotas.descuento"
               onChange={handleChange}
             />
           </div>
           <div>
             <label>image: </label>
             <input 
-              type="text" 
-              value={values.image}
-              required
+              type="file" 
               className="p-2 rounded w-full border border-blue-200 block my-4"
-              name="image"
-              onChange={handleChange}
+              onChange={(e) => e.target.files && setFile(e.target.files[0])}
             />
           </div>
           <div>
-            <label>image hover: </label>
+            <label>imagen de hover: </label>
             <input 
-              type="text" 
-              value={values.imageHover}
-              required
+              type="file"
               className="p-2 rounded w-full border border-blue-200 block my-4"
-              name="imageHover"
-              onChange={handleChange}
+              onChange={(e) => e.target.files && setFileHover(e.target.files[0])}
             />
           </div>
           <div>
@@ -174,8 +236,8 @@ const CreateForm = () => {
               className="p-2 rounded w-full border border-blue-200 block my-4"
               required
             >
-              <option value="true">si</option>
-              <option value="false">no</option>
+              <option value={"true"}>si</option>
+              <option value={"false"}>no</option>
             </select>
           </div>
           <div>

@@ -15,9 +15,10 @@ const ProductoCard = ({item} : { item: Producto }) => {
     >
       <div className="relative h-[270px] grid place-items-center">
         <Image
-            src={`/products/${isHovered ? item.imageHover : item.image}`}
+            src={isHovered ? item.imageHover : item.image}
             width={250}
             height={250}
+            style={{objectFit: "contain"}}
             alt=""
         />
         <div className={`absolute top-3 right-3 opacity-80 h-9 w-9 rounded-full grid place-items-center ${item.nuevo ? 'bg-green-600' : 'bg-red-600'}`}>

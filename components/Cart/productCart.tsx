@@ -3,6 +3,7 @@ import eliminar from '@/assets/Icon/eliminarIcon.png'
 import CantidadComponent from "@/components/Cart/cantidadComponent";
 import { removeToCart } from "@/redux/slices/cartSlice";
 import { useAppDispatch } from "@/redux/hooks";
+import { formatter } from "@/utils/Formatter";
 
 const ProductCart = ({item} : {item : Producto}) => {
     const dispatch = useAppDispatch()
@@ -14,13 +15,13 @@ const ProductCart = ({item} : {item : Producto}) => {
     return (
         <div className="h-[100px] cursor-default flex items-center justify-between shadow shadow-gray-400 rounded-xl px-4 py-2">
             <Image
-                src={`/products/${item.image}`}
+                src={item.image}
                 width={100}
                 height={100}
                 alt=""
             />
             <h1 className="max-w-[100px] lg:max-w-[250px] text-xs lg:text-sm">{item.title}</h1>
-            <p className="text-xs md:text-base">{item.price}</p>
+            <p className="text-xs md:text-base">{formatter.format(item.price)}</p>
             <CantidadComponent item={item}/>
             <Image
                 src={eliminar}

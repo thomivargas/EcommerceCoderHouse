@@ -3,7 +3,7 @@ import Link from "next/link";
 
 
 const ProductsTable = async () => {
-    const data = await fetch(`http://localhost:3000/api/productos/todos`,
+    const data = await fetch(`http://${process.env.VERCEL_URL}/api/productos/todos`,
     { cache: 'no-store' }
     ).then(r => r.json());
 
@@ -39,7 +39,7 @@ const ProductsTable = async () => {
                         <td className="p-2">{item.slug}</td>
                         <td className="p-2">
                             <Image
-                                src={`/products/${item.image}`}
+                                src={`${item.image}`}
                                 alt=""
                                 height={100}
                                 width={100}
@@ -47,7 +47,7 @@ const ProductsTable = async () => {
                         </td>
                         <td className="p-2">
                             <Image
-                                src={`/products/${item.imageHover}`}
+                                src={`${item.imageHover}`}
                                 alt=""
                                 height={100}
                                 width={100}

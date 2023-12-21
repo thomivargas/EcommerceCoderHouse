@@ -55,9 +55,9 @@ const MenuCart = ({ openCart, setOpenCart }: MenuProps) => {
                 <h1 className="p-5 text-xl font-semibold">Shopping Cart</h1>
                 <div className="h-[200px] flex flex-col gap-5 overflow-auto">
                     { itemCart?.map( item => (
-                        <div className="mt-3 flex gap-2 justify-between items-center px-5">
+                        <div key={item.slug} className="mt-3 flex gap-2 justify-between items-center px-5">
                             <Image
-                                src={`/products/${item.image}`}
+                                src={item.image}
                                 width={100}
                                 height={100}
                                 alt=""
