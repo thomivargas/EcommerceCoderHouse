@@ -7,7 +7,7 @@ type Params = {
 
 const DetailPage = async ({params} : {params: Params}) => {
     const {slug} = params
-    const data = await fetch(`http://${process.env.VERCEL_URL}/api/product/${slug}`,
+    const data = await fetch(`http://localhost:3000/api/product/${slug}`,
         { cache: 'no-store' }
     ).then(r => r.json());
 

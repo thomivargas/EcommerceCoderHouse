@@ -11,6 +11,7 @@ export async function GET(request : Request, {params}: {params: Params}) {
     const { categoria } = params;
     const productosRef = collection(db, 'productos');
 
+
     const q = categoria === 'todos' ? productosRef : query(productosRef, where('type', '==', categoria));
 
     const querySnapshot = await getDocs(q)

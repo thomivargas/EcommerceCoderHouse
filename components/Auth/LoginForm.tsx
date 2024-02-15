@@ -23,33 +23,33 @@ const LoginForm = () => {
 
     return (
         <form onSubmit={handleSubmit} className='mt-5 flex flex-col gap-5 p-5 items-center input-perfil'>
-            <input 
-                onChange={handleChange} 
-                type="email" 
+            <input
+                onChange={handleChange}
+                type="email"
                 required
                 value={values.email}
                 name="email"
-                placeholder='Email de usuario' 
+                placeholder='Email de usuario'
             />
-            <input 
-                onChange={handleChange} 
-                type="password" 
+            <input
+                onChange={handleChange}
+                type="password"
                 required
                 value={values.password}
                 name="password"
-                placeholder='Contraseña' 
+                placeholder='Contraseña'
             />
             <div className="flex gap-5">
                 <button
-                    onClick={() => 
-                        loginUser({ email: values.email, password: values.password, setUser})
-                    } 
-                    className='bg-[#b88f2f] text-white placeholder:text-white cursor-pointer px-4 py-3 border border-[#b88f2f] rounded-3xl hover:bg-[#b88f2fdc] transition duration-300 ease-in-out'
+                    onClick={() =>/*  */
+                        loginUser({ email: values.email, password: values.password, setUser })
+                    }
+                    className='bg-[#b88f2f] text-white placeholZder:text-white cursor-pointer px-4 py-3 border border-[#b88f2f] rounded-3xl hover:bg-[#b88f2fdc] transition duration-300 ease-in-out'
                 >
                     login
                 </button>
                 <button
-                    onClick={() => 
+                    onClick={() =>
                         registerUser({ email: values.email, password: values.password, setUser })
                     }
                     className='bg-[#b88f2f] text-white placeholder:text-white cursor-pointer px-4 py-3 border border-[#b88f2f] rounded-3xl hover:bg-[#b88f2fdc] transition duration-300 ease-in-out'
